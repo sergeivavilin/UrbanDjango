@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <h2> {{ error }}</h2>
+    <form method="post">
+        {% csrf_token %}
+        <!-- Если шаблон запускается с помощью формы отрабатывается блок if-->
+        {% if form %}
+            {{ form.as_p }}
+        <!-- Если шаблон запускается без использования формы отрабатывается блок else-->
+        {% else %}
+            <p>
+                <label for="name">Введите логин:</label>
+                <input type="text" id="name" name="username" maxlength=30 required>
+            </p>
+            <p>
+                <label for="password">Введите пароль:</label>
+                <input type="password" id="password" name="password" minlength=8 required>
+            </p>
+            <p>
+                <label for="repeat_password">Повторите пароль:</label>
+                <input type="password" id="repeat_password" name="password2" minlength=8 required>
+            </p>
+            <p>
+                <label for="age">Введите свой возраст:</label>
+                <input type="number" id="age" name="age" min=18 max=150 required>
+            </p>
+        {% endif %}
+        <br>
+        <button type="submit"> Зарегистрироваться </button>
+    </form>
+    <h2 style="text-align: center;"> {{ message }} </h2>
+</body>
+</html>

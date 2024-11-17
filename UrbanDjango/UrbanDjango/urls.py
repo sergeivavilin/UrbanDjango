@@ -21,14 +21,18 @@ from django.urls import path
 
 from task2.views import index, index2
 from task4.views import MainPage, ShopPage, CartPage
+from task5.views import sign_up_by_django, sign_up_by_html
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index),
-    path('index2/', index2.as_view()),
+    # path('', index),
+    # path('index2/', index2.as_view()),
     # Shop pages
-    path('main_page/', MainPage.as_view()),
-    path('main_page/shop/', ShopPage.as_view()),
-    path('main_page/cart/', CartPage.as_view()),
+    # path('main_page/', MainPage.as_view()),
+    # path('main_page/shop/', ShopPage.as_view()),
+    # path('main_page/cart/', CartPage.as_view()),
+    # Registration pages
+    path('', sign_up_by_html),
+    path('django_sign_up/', sign_up_by_django.as_view()),
 ]
